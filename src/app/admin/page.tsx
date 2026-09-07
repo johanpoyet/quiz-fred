@@ -2,7 +2,6 @@
 
 import { useEffect, useState } from "react";
 import { useGameState, useCountdown } from "@/lib/useGameState";
-import { ANSWERS, Shape } from "@/components/Shapes";
 
 const KEY_STORAGE = "quiz-anniv:adminKey";
 
@@ -160,9 +159,6 @@ function Console({ adminKey, onReject }: { adminKey: string; onReject: () => voi
           <ul className="mt-4 space-y-1.5">
             {state.question.options.map((opt, i) => (
               <li key={i} className="flex items-center gap-3 text-[15px]">
-                <span style={{ color: ANSWERS[i].color }}>
-                  <Shape index={i} size={18} />
-                </span>
                 <span className={state.correct!.includes(i) ? "font-bold text-a4" : "text-muted"}>
                   {opt}
                 </span>
