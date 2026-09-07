@@ -74,8 +74,7 @@ function JoinScreen({ onJoined }: { onJoined: (id: string) => void }) {
           Entre ton prénom pour jouer
         </h1>
         <p className="mt-3 text-muted text-[15px] leading-relaxed">
-          Il s&apos;affichera au classement sur le mur, alors reste
-          reconnaissable.
+          Il apparaîtra au classement, alors reste reconnaissable.
         </p>
 
         <input
@@ -234,7 +233,7 @@ function GameScreen({ playerId, onLost }: { playerId: string; onLost: () => void
             {notice
               ? notice
               : chosen !== null
-              ? "C'est enregistré. Regarde le mur."
+              ? "C'est enregistré. Réponse dans un instant."
               : "Choisis ta réponse."}
           </p>
         </>
@@ -312,7 +311,7 @@ function WaitingScreen({ state }: { state: NonNullable<ReturnType<typeof useGame
       <div>
         <h2 className="text-2xl font-bold">Tu es dans la partie</h2>
         <p className="mt-3 text-muted leading-relaxed">
-          La prochaine question va s&apos;afficher sur le mur.
+          La prochaine question va s&apos;afficher ici.
         </p>
         <p className="mt-8 text-sm text-muted">
           {state.playerCount} {state.playerCount > 1 ? "joueurs connectés" : "joueur connecté"}
