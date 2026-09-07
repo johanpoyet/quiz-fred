@@ -27,6 +27,13 @@ function getClient(): SupabaseClient {
 
   cached = createClient(url, serviceKey, {
     auth: { persistSession: false, autoRefreshToken: false },
+    // Sans ça, Next.js met en cache les GET de supabase-js dans les route
+    // handlers et sert un instantané figé de la base (playerCount bloqué,
+    // classement qui ne bouge plus). On coupe le cache à la source.
+    global: {
+      fetch: (input: RequestInfo | URL, init?: RequestInit) =>
+        fetch(input, { ...init, cache: "no-store" }),
+    },
   });
   return cached;
 }

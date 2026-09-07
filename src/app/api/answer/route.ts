@@ -4,6 +4,8 @@ import { getQuestion, durationMs } from "@/lib/questions";
 import { computePoints, GRACE_MS } from "@/lib/scoring";
 
 export const dynamic = "force-dynamic";
+export const fetchCache = "force-no-store";
+export const revalidate = 0;
 
 /**
  * Enregistre une réponse et calcule les points.

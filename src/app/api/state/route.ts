@@ -4,6 +4,8 @@ import { questions, getQuestion, durationMs } from "@/lib/questions";
 import type { PublicState, Phase } from "@/lib/types";
 
 export const dynamic = "force-dynamic";
+export const fetchCache = "force-no-store";
+export const revalidate = 0;
 
 /**
  * Renvoie l'état complet du jeu.
