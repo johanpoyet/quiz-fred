@@ -1,0 +1,50 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: dark;
+}
+
+html,
+body {
+  height: 100%;
+  background: #0e1425;
+  color: #f2eee3;
+  -webkit-tap-highlight-color: transparent;
+  overscroll-behavior: none;
+}
+
+/* Le fond du mur : une nuit d'été, discrète, qui ne concurrence pas les
+   photos ni les couleurs de réponse. */
+.night {
+  background:
+    radial-gradient(1200px 600px at 50% -10%, #1d2a4d 0%, transparent 70%),
+    radial-gradient(900px 500px at 10% 110%, #17203a 0%, transparent 65%),
+    #0e1425;
+}
+
+@keyframes pop {
+  0% { transform: scale(0.9); opacity: 0; }
+  60% { transform: scale(1.03); }
+  100% { transform: scale(1); opacity: 1; }
+}
+.pop { animation: pop 260ms cubic-bezier(0.2, 0.8, 0.2, 1) both; }
+
+@keyframes rise {
+  from { transform: translateY(10px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+.rise { animation: rise 320ms ease-out both; }
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+:focus-visible {
+  outline: 3px solid #e8c56a;
+  outline-offset: 3px;
+}
