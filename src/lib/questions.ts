@@ -64,7 +64,7 @@ export const questions: Question[] = [
   },
   {
     text: "Que porte Fred sur cette photo ?",
-    photo: "moule-bite.png",
+    photo: "moule-bite.jpg",
     options: ["moule-bite", "presbyte", "belle bite", "terreur nocturne"],
     correct: [0],
     duration: 25,
