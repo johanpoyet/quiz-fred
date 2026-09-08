@@ -62,6 +62,13 @@ export const questions: Question[] = [
     options: ["Andrézieux", "Chavanoz", "Saint-Étienne", "Istanbul"],
     correct: [2],
   },
+  {
+    text: "Que porte Fred sur cette photo ?",
+    photo: "moule-bite.png",
+    options: ["moule-bite", "presbyte", "belle bite", "terreur nocturne"],
+    correct: [0],
+    duration: 25,
+  },
 ];
 
 export function getQuestion(index: number): Question | null {
