@@ -69,6 +69,27 @@ export const questions: Question[] = [
     correct: [0],
     duration: 25,
   },
+  {
+    text: "Son âge sur la photo ?",
+    photo: "16ans.jpeg",
+    options: ["14 ans", "18 ans", "21 ans", "16 ans"],
+    correct: [3],
+    duration: 25,
+  },
+  {
+    text: "Son âge sur la photo ?",
+    photo: "33ans.jpeg",
+    options: ["35 ans", "30 ans", "33 ans", "28 ans"],
+    correct: [2],
+    duration: 25,
+  },
+  {
+    text: "Son âge lors de sa première cuite ?",
+    photo: "12ans.jpg",
+    options: ["12 ans", "10 ans", "15 ans", "16 ans"],
+    correct: [0],
+    duration: 25,
+  },
 ];
 
 export function getQuestion(index: number): Question | null {
