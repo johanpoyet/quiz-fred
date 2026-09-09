@@ -60,7 +60,7 @@ export const questions: Question[] = [
   {
     text: "Sa ville de naissance ?",
     options: ["Andrézieux", "Chavanoz", "Saint-Étienne", "Istanbul"],
-    correct: [2],
+    correct: [3],
   },
   {
     text: "Que porte Fred sur cette photo ?",
@@ -89,6 +89,22 @@ export const questions: Question[] = [
     options: ["12 ans", "10 ans", "15 ans", "16 ans"],
     correct: [0],
     duration: 25,
+  },
+  {
+    text: "Avec qui passerait-il sa journée s'il avait le choix ?",
+    // "Ses enfants" est barré : gag, toutes les réponses sont bonnes.
+    options: ["Charlène", "Charlène", "S̶e̶s̶ ̶e̶n̶f̶a̶n̶t̶s̶", "Charlène"],
+    correct: [0, 1, 2, 3],
+  },
+  {
+    text: "Les 3 sports qu'il a pratiqués ?",
+    options: [
+      "Gym, foot et boules",
+      "Tennis, foot et boules",
+      "Gym, tennis et boules",
+      "Magic Mike, équitation et natation",
+    ],
+    correct: [0],
   },
 ];
 
