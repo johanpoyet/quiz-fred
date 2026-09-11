@@ -117,7 +117,7 @@ function Console({ adminKey, onReject }: { adminKey: string; onReject: () => voi
         return { label: "Voir le classement", action: "leaderboard" };
       case "leaderboard":
         return isLast
-          ? { label: "Afficher le podium final", action: "finish" }
+          ? { label: "Révéler le classement final", action: "finish" }
           : { label: "Question suivante", action: "next" };
       default:
         return { label: "Retour à l'accueil", action: "lobby" };

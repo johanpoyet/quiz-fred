@@ -106,7 +106,9 @@ export async function GET(req: NextRequest) {
       : null,
     correct: q && (revealed || isPresenter) ? q.correct : null,
     counts,
-    leaderboard: roster.slice(0, 10),
+    // Classement complet : les écrans qui n'en montrent qu'une partie
+    // (mur en cours de partie, régie) tronquent eux-mêmes à l'affichage.
+    leaderboard: roster,
     you,
   };
 

@@ -302,15 +302,45 @@ function WaitingScreen({ state }: { state: NonNullable<ReturnType<typeof useGame
   }
 
   if (state.phase === "finished") {
+    const top = state.leaderboard;
+    const inTop = you.rank <= top.length;
     return (
-      <div className="flex-1 grid place-items-center px-8 text-center">
-        <div className="pop">
+      <div className="flex-1 overflow-y-auto px-6 py-8">
+        <div className="pop text-center">
           <p className="text-6xl mb-4">{you.rank === 1 ? "🏆" : "👏"}</p>
           <h2 className="text-3xl font-extrabold">
             {you.rank === 1 ? "Tu gagnes !" : `${you.rank}e place`}
           </h2>
           <p className="mt-3 text-muted text-lg">{you.score} points</p>
         </div>
+
+        <h3 className="mt-8 text-gold text-sm font-semibold tracking-wide">
+          Classement final
+        </h3>
+        <ol className="mt-3 flex flex-col gap-2">
+          {top.map((p, i) => {
+            const mine = i + 1 === you.rank;
+            return (
+              <li
+                key={p.id}
+                className={`flex items-center gap-4 rounded-xl px-4 py-2.5 ${
+                  mine ? "bg-gold/15 border-2 border-gold" : "bg-surface"
+                }`}
+              >
+                <span className="w-6 text-muted tabular-nums font-bold">{i + 1}</span>
+                <span className="flex-1 truncate font-semibold">{p.pseudo}</span>
+                <span className="tabular-nums text-gold font-bold">{p.score}</span>
+              </li>
+            );
+          })}
+          {!inTop && (
+            <li className="flex items-center gap-4 rounded-xl px-4 py-2.5 bg-gold/15 border-2 border-gold">
+              <span className="w-6 text-muted tabular-nums font-bold">{you.rank}</span>
+              <span className="flex-1 truncate font-semibold">{you.pseudo}</span>
+              <span className="tabular-nums text-gold font-bold">{you.score}</span>
+            </li>
+          )}
+        </ol>
       </div>
     );
   }
