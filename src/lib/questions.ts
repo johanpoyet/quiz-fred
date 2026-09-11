@@ -17,14 +17,75 @@
 export type Question = {
   text: string;
   photo?: string;
-  options: [string, string, string, string];
+  // 4 choix d'habitude, mais 2 ("Vrai" / "Faux") pour les questions
+  // vrai/faux.
+  options: string[];
   correct: number[];
   duration?: number;
 };
 
 export const DEFAULT_DURATION = 20;
 
+// Ordre volontairement mélangé par rapport à l'écriture ci-dessous, avec
+// deux contraintes : la question David Douillet passe avant celle sur
+// Teddy Riner, et « Son enfant préféré ? » ferme toujours la marche.
 export const questions: Question[] = [
+  {
+    text: "Son âge sur la photo ?",
+    photo: "33ans.jpeg",
+    options: ["35 ans", "30 ans", "33 ans", "28 ans"],
+    correct: [2],
+    duration: 25,
+  },
+  {
+    text: "La date de son anniversaire ?",
+    options: ["4 mai", "4 septembre", "4 février", "4x4 = 16"],
+    correct: [0],
+  },
+  {
+    text: "Vrai ou faux : a-t-il rencontré David Douillet ?",
+    options: ["Vrai", "Faux"],
+    correct: [0],
+  },
+  {
+    text: "Que porte Fred sur cette photo ?",
+    photo: "moule-bite.jpg",
+    options: ["moule-bite", "presbyte", "belle bite", "terreur nocturne"],
+    correct: [0],
+    duration: 25,
+  },
+  {
+    text: "Son club de cœur au foot ?",
+    options: ["OL", "OM", "ASSE", "PSG"],
+    correct: [2],
+  },
+  {
+    text: "Son sport de prédilection ?",
+    options: ["Football", "Pétanque", "Curling sur gazon", "Boule Lyonnaise"],
+    correct: [3],
+  },
+  {
+    text: "Son âge lors de sa première cuite ?",
+    photo: "12ans.jpg",
+    options: ["12 ans", "10 ans", "15 ans", "16 ans"],
+    correct: [0],
+    duration: 25,
+  },
+  {
+    text: "À quel âge a-t-il fait ses premiers pas ?",
+    options: ["6 mois", "12 mois", "18 mois", "10 mois"],
+    correct: [3],
+  },
+  {
+    text: "Vrai ou faux : a-t-il rencontré Nabil Fékir ?",
+    options: ["Vrai", "Faux"],
+    correct: [1],
+  },
+  {
+    text: "Son tennisman préféré ?",
+    options: ["Djokovic", "Nadal", "Federer", "Murray"],
+    correct: [2],
+  },
   {
     text: "Quel âge avait Fred sur cette photo ?",
     photo: "fred-militaire.jpg",
@@ -33,13 +94,18 @@ export const questions: Question[] = [
     duration: 25,
   },
   {
-    text: "Son sport de prédilection ?",
-    options: ["Football", "Pétanque", "Curling sur gazon", "Boule Lyonnaise"],
-    correct: [3],
+    text: "Les 3 sports qu'il a pratiqués ?",
+    options: [
+      "Gym, foot et boules",
+      "Tennis, foot et boules",
+      "Gym, tennis et boules",
+      "Magic Mike, équitation et natation",
+    ],
+    correct: [0],
   },
   {
-    text: "La date de son anniversaire ?",
-    options: ["4 mai", "4 septembre", "4 février", "4x4 = 16"],
+    text: "Vrai ou faux : a-t-il rencontré Grégory Coupet ?",
+    options: ["Vrai", "Faux"],
     correct: [0],
   },
   {
@@ -53,8 +119,18 @@ export const questions: Question[] = [
     correct: [0, 1, 2, 3],
   },
   {
-    text: "Son enfant préféré ?",
-    options: ["Joan", "Johan", "Jo-ane", "Yohan"],
+    text: "Qui était son garde du corps, petit ?",
+    options: [
+      "Nouk (sa chienne)",
+      "Gilles (son père)",
+      "Stéphane (son ami)",
+      "Le Belou (un SDF du coin)",
+    ],
+    correct: [0],
+  },
+  {
+    text: "Vrai ou faux : a-t-il rencontré Teddy Riner ?",
+    options: ["Vrai", "Faux"],
     correct: [1],
   },
   {
@@ -63,11 +139,10 @@ export const questions: Question[] = [
     correct: [3],
   },
   {
-    text: "Que porte Fred sur cette photo ?",
-    photo: "moule-bite.jpg",
-    options: ["moule-bite", "presbyte", "belle bite", "terreur nocturne"],
-    correct: [0],
-    duration: 25,
+    text: "Avec qui passerait-il sa journée s'il avait le choix ?",
+    // "Ses enfants" est barré : gag, toutes les réponses sont bonnes.
+    options: ["Charlène", "Charlène", "S̶e̶s̶ ̶e̶n̶f̶a̶n̶t̶s̶ Charlène", "Charlène"],
+    correct: [0, 1, 2, 3],
   },
   {
     text: "Son âge sur la photo ?",
@@ -77,34 +152,9 @@ export const questions: Question[] = [
     duration: 25,
   },
   {
-    text: "Son âge sur la photo ?",
-    photo: "33ans.jpeg",
-    options: ["35 ans", "30 ans", "33 ans", "28 ans"],
-    correct: [2],
-    duration: 25,
-  },
-  {
-    text: "Son âge lors de sa première cuite ?",
-    photo: "12ans.jpg",
-    options: ["12 ans", "10 ans", "15 ans", "16 ans"],
-    correct: [0],
-    duration: 25,
-  },
-  {
-    text: "Avec qui passerait-il sa journée s'il avait le choix ?",
-    // "Ses enfants" est barré : gag, toutes les réponses sont bonnes.
-    options: ["Charlène", "Charlène", "S̶e̶s̶ ̶e̶n̶f̶a̶n̶t̶s̶", "Charlène"],
-    correct: [0, 1, 2, 3],
-  },
-  {
-    text: "Les 3 sports qu'il a pratiqués ?",
-    options: [
-      "Gym, foot et boules",
-      "Tennis, foot et boules",
-      "Gym, tennis et boules",
-      "Magic Mike, équitation et natation",
-    ],
-    correct: [0],
+    text: "Son enfant préféré ?",
+    options: ["Joan", "Johan", "Jo-ane", "Yohan"],
+    correct: [1],
   },
 ];
 

@@ -27,7 +27,7 @@ export async function POST(req: NextRequest) {
   if (!playerId || typeof questionIndex !== "number" || typeof choice !== "number") {
     return NextResponse.json({ error: "Requête incomplète" }, { status: 400 });
   }
-  if (choice < 0 || choice > 3) {
+  if (choice < 0) {
     return NextResponse.json({ error: "Réponse invalide" }, { status: 400 });
   }
 
@@ -50,6 +50,11 @@ export async function POST(req: NextRequest) {
   const q = getQuestion(questionIndex);
   if (!q || !state.question_started_at) {
     return NextResponse.json({ error: "Question introuvable" }, { status: 400 });
+  }
+  // Les questions vrai/faux n'ont que 2 options : on vérifie contre le
+  // nombre réel plutôt qu'un 4 fixe.
+  if (choice >= q.options.length) {
+    return NextResponse.json({ error: "Réponse invalide" }, { status: 400 });
   }
 
   const limit = durationMs(q);
