@@ -145,8 +145,13 @@ export const questions: Question[] = [
   },
   {
     text: "Avec qui passerait-il sa journée s'il avait le choix ?",
-    // "Ses enfants" est barré : gag, toutes les réponses sont bonnes.
-    options: ["Charlène", "Charlène", "S̶e̶s̶ ̶e̶n̶f̶a̶n̶t̶s̶ Charlène", "Charlène"],
+    // Chaque nom est barré : gag, la réponse est toujours "Charlène".
+    options: [
+      "O̶c̶é̶a̶n̶e̶ Charlène",
+      "J̶o̶h̶a̶n̶ Charlène",
+      "L̶i̶l̶i̶a̶n̶ Charlène",
+      "S̶e̶s̶ ̶3̶ ̶e̶n̶f̶a̶n̶t̶s̶ Charlène",
+    ],
     correct: [0, 1, 2, 3],
   },
   {
