@@ -94,7 +94,7 @@ export const questions: Question[] = [
     text: "Quel âge avait Fred sur cette photo ?",
     photo: "fred-militaire.jpg",
     options: ["20 ans", "18 ans", "22 ans", "16 ans"],
-    correct: [1],
+    correct: [0],
     duration: 25,
   },
   {
