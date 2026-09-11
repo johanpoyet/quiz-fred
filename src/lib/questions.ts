@@ -38,9 +38,9 @@ export const questions: Question[] = [
     duration: 25,
   },
   {
-    text: "La date de son anniversaire ?",
-    options: ["4 mai", "4 septembre", "4 février", "4x4 = 16"],
-    correct: [0],
+    text: "Son année de naissance ?",
+    options: ["1974", "1976", "1977", "1975"],
+    correct: [1],
   },
   {
     text: "Vrai ou faux : a-t-il rencontré David Douillet ?",
@@ -68,7 +68,7 @@ export const questions: Question[] = [
     text: "Son âge lors de sa première cuite ?",
     photo: "12ans.jpg",
     options: ["12 ans", "10 ans", "15 ans", "16 ans"],
-    correct: [0],
+    correct: [1],
     duration: 25,
   },
   {
@@ -89,8 +89,8 @@ export const questions: Question[] = [
   {
     text: "Quel âge avait Fred sur cette photo ?",
     photo: "fred-militaire.jpg",
-    options: ["1333", "1873", "1999", "1783"],
-    correct: [2],
+    options: ["20 ans", "18 ans", "22 ans", "16 ans"],
+    correct: [1],
     duration: 25,
   },
   {
@@ -136,7 +136,7 @@ export const questions: Question[] = [
   {
     text: "Sa ville de naissance ?",
     options: ["Andrézieux", "Chavanoz", "Saint-Étienne", "Istanbul"],
-    correct: [3],
+    correct: [2],
   },
   {
     text: "Avec qui passerait-il sa journée s'il avait le choix ?",
