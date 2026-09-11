@@ -42,9 +42,9 @@ export const questions: Question[] = [
     duration: 25,
   },
   {
-    text: "Son année de naissance ?",
-    options: ["1974", "1976", "1977", "1975"],
-    correct: [1],
+    text: "Sa date de naissance ?",
+    options: ["4 mai 1986", "4 mars 1976", "4 mars 1986", "4 mai 1976"],
+    correct: [3],
   },
   {
     text: "Vrai ou faux : a-t-il rencontré David Douillet ?",
