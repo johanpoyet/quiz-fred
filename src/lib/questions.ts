@@ -7,9 +7,12 @@
  * - `correct` est un tableau d'index (0 = 1re option). Plusieurs index
  *   possibles quand toutes les réponses sont bonnes, comme ta question
  *   sur l'âge où 10x5, 50 et 50-50+50 valent pareil.
- * - `photo` est optionnel. Mets le fichier dans /public/photos/ et
- *   indique juste son nom. La photo n'est affichée QUE sur le mur,
- *   jamais envoyée aux téléphones.
+ * - `photo` est optionnelle. Mets le fichier dans /public/photos/ et
+ *   indique juste son nom. Elle est affichée pendant la question, sur le
+ *   mur et sur les téléphones.
+ * - `revealPhoto` est aussi optionnelle : contrairement à `photo`, elle
+ *   n'apparaît qu'au moment du reveal, comme bonus après la bonne
+ *   réponse (ex. la photo de Nouk sur la question du garde du corps).
  * - `duration` est en secondes. 20 par défaut, 25-30 si la photo
  *   demande de la réflexion.
  */
@@ -17,6 +20,7 @@
 export type Question = {
   text: string;
   photo?: string;
+  revealPhoto?: string;
   // 4 choix d'habitude, mais 2 ("Vrai" / "Faux") pour les questions
   // vrai/faux.
   options: string[];
@@ -127,6 +131,7 @@ export const questions: Question[] = [
       "Le Belou (un SDF du coin)",
     ],
     correct: [0],
+    revealPhoto: "nouk.jpg",
   },
   {
     text: "Vrai ou faux : a-t-il rencontré Teddy Riner ?",

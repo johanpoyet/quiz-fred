@@ -18,6 +18,7 @@ export type PublicState = {
     text: string;
     options: string[];
     photo?: string;
+    revealPhoto?: string;
   } | null;
   correct: number[] | null;
   counts: number[] | null;

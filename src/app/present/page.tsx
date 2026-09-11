@@ -147,6 +147,13 @@ function QuestionView({ state, remaining }: { state: PublicState; remaining: num
             alt=""
             className="max-h-full max-w-[52%] rounded-2xl object-contain shadow-2xl"
           />
+        ) : revealed && q.revealPhoto ? (
+          // eslint-disable-next-line @next/next/no-img-element
+          <img
+            src={`/photos/${q.revealPhoto}`}
+            alt=""
+            className="max-h-full max-w-[52%] rounded-2xl object-contain shadow-2xl rise"
+          />
         ) : !revealed ? (
           <div className="text-[9rem] font-extrabold tabular-nums text-gold">
             {remaining}

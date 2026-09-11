@@ -279,6 +279,15 @@ function WaitingScreen({ state }: { state: NonNullable<ReturnType<typeof useGame
             </div>
           )}
 
+          {state.question?.revealPhoto && (
+            // eslint-disable-next-line @next/next/no-img-element
+            <img
+              src={`/photos/${state.question.revealPhoto}`}
+              alt=""
+              className="mt-4 w-full max-w-xs mx-auto rounded-2xl object-contain"
+            />
+          )}
+
           {!won && voted && yourLabel && (
             <p className="mt-3 text-muted text-[15px]">
               Ta réponse&nbsp;:{" "}

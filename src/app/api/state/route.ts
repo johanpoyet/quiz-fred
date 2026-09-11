@@ -99,6 +99,9 @@ export async function GET(req: NextRequest) {
           text: q.text,
           options: q.options,
           ...(q.photo ? { photo: q.photo } : {}),
+          // Bonus qui n'apparaît qu'au reveal : jamais avant, même côté
+          // régie, pour ne pas la griller sur le mur avant le moment venu.
+          ...(q.revealPhoto && revealed ? { revealPhoto: q.revealPhoto } : {}),
         }
       : null,
     correct: q && (revealed || isPresenter) ? q.correct : null,
